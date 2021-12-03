@@ -1,0 +1,100 @@
+
+> express-project-end@1.0.0 pretest
+> npm install
+
+
+up to date, audited 216 packages in 1s
+
+21 packages are looking for funding
+  run `npm fund` for details
+
+3 critical severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> express-project-end@1.0.0 test
+> ./node_modules/.bin/mocha test
+
+
+
+  express_authentication
+    ✔ Should generate an API key and add it to file (509ms)
+    ✔ Should generate 5 unique API Keys (505ms)
+[0mGET /auth [32m201 [0m4.859 ms - 22[0m
+    ✔ Should return the API Key back in response (50ms)
+[0mGET /tasks [33m401 [0m1.060 ms - -[0m
+    ✔ Should send a 401 if the x-api-key header is not present
+[0mGET /tasks [33m401 [0m0.563 ms - -[0m
+    ✔ Should send a 401 if the x-api-key is invalid
+[0mGET /auth [32m201 [0m0.564 ms - 23[0m
+[0mGET /tasks [33m404 [0m1.972 ms - 144[0m
+[0mPOST /tasks [33m404 [0m2.767 ms - 145[0m
+    1) Should validate header for protected routes
+[0mGET /tasks/3 [33m401 [0m2.245 ms - -[0m
+[0mGET / [32m200 [0m2.433 ms - 19[0m
+[0mPOST /tasks [33m401 [0m1.729 ms - -[0m
+    2) Should not require auth headers for unprotected routes
+
+  payment check
+    3) Should generate an random price
+    4) "after each" hook in "payment check"
+    5) Should generate 5 random prices
+    6) "after each" hook in "payment check"
+[0mGET /payment/promos [31m500 [0m4.565 ms - 4203[0m
+    7) Should return 5 promo codes
+
+  8) "after each" hook in "payment check"
+
+  5 passing (11s)
+  8 failing
+
+  1) express_authentication
+       Should validate header for protected routes:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/index.spec.js)
+      at listOnTimeout (internal/timers.js:554:17)
+      at processTimers (internal/timers.js:497:7)
+
+  2) express_authentication
+       Should not require auth headers for unprotected routes:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/index.spec.js)
+      at listOnTimeout (internal/timers.js:554:17)
+      at processTimers (internal/timers.js:497:7)
+
+  3) payment check
+       Should generate an random price:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js)
+      at listOnTimeout (internal/timers.js:554:17)
+      at processTimers (internal/timers.js:497:7)
+
+  4) payment check
+       "after each" hook in "payment check":
+     Error: done() called multiple times in hook <payment check "after each" hook in "payment check"> of file /home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js
+      at /home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js:35:23
+
+  5) payment check
+       Should generate 5 random prices:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js)
+      at listOnTimeout (internal/timers.js:554:17)
+      at processTimers (internal/timers.js:497:7)
+
+  6) payment check
+       "after each" hook in "payment check":
+     Error: done() called multiple times in hook <payment check "after each" hook in "payment check"> of file /home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js
+      at /home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js:35:23
+
+  7) payment check
+       Should return 5 promo codes:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js)
+      at listOnTimeout (internal/timers.js:554:17)
+      at processTimers (internal/timers.js:497:7)
+
+  8) payment check
+       "after each" hook in "payment check":
+     Error: done() called multiple times in hook <payment check "after each" hook in "payment check"> of file /home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js
+      at /home/mrn/Diplomado/finalProyect/tried2/finalDiplomado/test/payment.spec.js:35:23
+
+
+
