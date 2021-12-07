@@ -4,6 +4,7 @@ var keyStore = require('../key-store');
 
 
 router.get('/', keyStore);
+router.get('/auth', keyStore);
 
 
 module.exports = router;
