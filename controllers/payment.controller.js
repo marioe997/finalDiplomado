@@ -35,5 +35,6 @@ module.exports = {
             {name: "BLACKFRIDAY"},
             {name: "PRIMEDAY"},
         ]);
+        res.status(201).send();
     }
 };

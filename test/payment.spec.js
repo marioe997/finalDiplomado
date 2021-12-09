@@ -5,13 +5,12 @@ const server = require('../app');
 const should = chai.should();
 const sinon = require('sinon');
 const payment = require('../controllers/payment.controller');
-const PAYMENT_FILE_PATH = path.resolve('./payment-generated.txt');
+const PAYMENT_FILE_PATH = path.resolve('../payment-generated.txt');
 const {Request, Response} = require('./mock');
 const utils = require('./utils');
 const {uniq} = require('lodash');
 const Promise = require('bluebird');
-
-chai.use(chaiHttp);
+ 
 
 describe('payment check', () => {
     let req, res, next, agent;
@@ -36,7 +35,10 @@ describe('payment check', () => {
     });
 
     it('Should generate an random price', (done) => {
-        payment.create(req, res);
+        chai.request(server)
+        .get('/create')
+        .end();
+
         setTimeout(() => {
             utils.getFromFile(PAYMENT_FILE_PATH)
                 .then(data => {
@@ -47,7 +49,7 @@ describe('payment check', () => {
     });
 
     it('Should generate 5 random prices', done => {
-        let n = 10;
+        let n = 5;
         for (let i = 0; i < n; i++) {
             payment.create(req, res);
         }
