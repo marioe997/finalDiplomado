@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var StatsD = require('hot-shots');
+var dogstatsd = new StatsD();
 
 var indexRouter = require('./routes/index');
 var tasksRouter = require('./routes/tasks');
@@ -31,7 +33,8 @@ app.use('/shipment', shipmentRouter);
 
 module.exports = app;
 
-
+// Increment a counter.
+dogstatsd.increment('page.views')
 
 //sentry
 
