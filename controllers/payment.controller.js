@@ -1,4 +1,4 @@
-const PAYMENT_FILE_PATH = 'payment-generated';
+const PAYMENT_FILE_PATH = '../payment-generated.txt';
 const faker = require('faker');
 const fs = require('fs');
 const LINE_ENDING = require('os').EOL;
@@ -21,14 +21,14 @@ module.exports = {
           console.error(err)
           return
         }
-        console.log(data) 
+        console.log(data )  
       })
     res.json({ message: "Se resto correctamente el precio" });
     res.status(201).send();
     },
 
     getPromos: function (req, res) {
-        req.json([
+        res.json([  
             {name: "BUENFIN"},
             {name: "HOTSALE"},
             {name: "CYBERMONDAY"},
