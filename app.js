@@ -5,9 +5,6 @@ var logger = require('morgan');
 var StatsD = require('hot-shots');
 var dogstatsd = new StatsD();
 
-var metrics = require('datadog-metrics');
-metrics.init({ host: 'myhost', prefix: 'myapp.' });
-
 var indexRouter = require('./routes/index');
 var tasksRouter = require('./routes/tasks');
 var authRouter = require('./routes/auth');
@@ -57,14 +54,6 @@ Sentry.init({
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 });
-
-function collectMemoryStats() {
-  var memUsage = process.memoryUsage();
-  metrics.gauge('memory.rss', memUsage.rss);
-  metrics.gauge('memory.heapTotal', memUsage.heapTotal);
-  metrics.gauge('memory.heapUsed', memUsage.heapUsed);
-  metrics.increment('memory.statsReported');
-}
 
 setInterval(collectMemoryStats, 5000);
 
