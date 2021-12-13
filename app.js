@@ -14,6 +14,8 @@ var shipmentRouter = require('./routes/shipment');
 
 var app = express();
 
+dogstatsd.increment('page.views')
+
 // view engine setup
 app.set('view engine', 'jade');
 
@@ -30,11 +32,11 @@ app.use('/operations', operationsRouter);
 app.use('/payment', paymentRouter);
 app.use('/shipment', shipmentRouter);
 
-
 module.exports = app;
 
 // Increment a counter.
-dogstatsd.increment('page.views')
+
+
 
 //sentry
 
