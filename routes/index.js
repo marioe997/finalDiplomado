@@ -5,7 +5,7 @@ var dogstatsd = new StatsD();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  client.increment('my_counter');
+  dogstatsd.increment('my_counter');
   res.send('<p>Hola mario!!</p>');
 });
 
