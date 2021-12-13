@@ -55,8 +55,6 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 
-setInterval(collectMemoryStats, 5000);
-
 const transaction = Sentry.startTransaction({
   op: "test",
   name: "My First Test Transaction",
