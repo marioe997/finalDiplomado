@@ -1,9 +1,9 @@
 name: Se corren los test y en caso de estar bien se realiza deploy hacia main
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ develop ]
+  pull_request:
+    branches: [ main ]
 
 
 jobs:
