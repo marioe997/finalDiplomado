@@ -1,17 +1,29 @@
-name: Push commit
+name: Se corren los test y en caso de estar bien se realiza deploy hacia main
 on:
   push:
     branches: [ develop ]
+  pull_request:
+    branches: [ main ]
+
 
 jobs:
-  report:
+  test:
+    name: 'Nodejs v${{ matrix.node }}'
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node:
+          - 12
+          - 14
     steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '${{ matrix.node }}'
       - uses: actions/checkout@v2
-      - name: Commit report
-        run: |
-          git config --global user.name 'Mario Guerrero'
-          git config --global user.email 'marioe997@users.noreply.github.com'
-          git commit -am "Automated report"
-          git checkout "${GITHUB_REF:11}" 
-          git push
+
+      - name: Install mocha
+        run: npm install -g mocha
+      - name: Instalando Dependencias
+        run: npm install
+      - name: Ejecuta los test de nuestro proyecto
+        run: npm run test
