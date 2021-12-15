@@ -1,4 +1,4 @@
-const PAYMENT_FILE_PATH = '../payment-generated.txt';
+const PAYMENT_FILE_PATH = './payment-generated.txt';
 const faker = require('faker');
 const fs = require('fs');
 const LINE_ENDING = require('os').EOL;
