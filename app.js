@@ -12,6 +12,14 @@ var paymentRouter = require('./routes/payment');
 var operationsRouter = require('./routes/operations');
 var shipmentRouter = require('./routes/shipment');
 
+const Sentry = require("@sentry/node");
+const Tracing = require("@sentry/tracing");
+
+const transaction = Sentry.startTransaction({
+  op: "test",
+  name: "My First Test Transaction",
+});
+
 var app = express();
 
 dogstatsd.increment('page.views')
@@ -36,29 +44,13 @@ module.exports = app;
 // Increment a counter.
 
 
-
-//sentry
-
-const Sentry = require("@sentry/node");
-// or use es6 import statements
-// import * as Sentry from '@sentry/node';
-
-const Tracing = require("@sentry/tracing");
-// or use es6 import statements
-// import * as Tracing from '@sentry/tracing';
-
 Sentry.init({
-  dsn: "https://9977b15e7bc1420cba0964062936d5e4@o1059778.ingest.sentry.io/6104243",
+  dsn: "https://cd258629a0db41138ad171dc36dd0166@o1059778.ingest.sentry.io/6048665",
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
-});
-
-const transaction = Sentry.startTransaction({
-  op: "test",
-  name: "My First Test Transaction",
 });
 
 setTimeout(() => {
