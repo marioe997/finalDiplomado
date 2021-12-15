@@ -49,7 +49,7 @@ const Tracing = require("@sentry/tracing");
 // import * as Tracing from '@sentry/tracing';
 
 Sentry.init({
-  dsn: "https://9977b15e7bc1420cba0964062936d5e4@o1059778.ingest.sentry.io/6104243",
+  dsn: "https://cd258629a0db41138ad171dc36dd0166@o1059778.ingest.sentry.io/6048665",
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
