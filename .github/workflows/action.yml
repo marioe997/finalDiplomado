@@ -1,0 +1,27 @@
+name: Se corren los test y en caso de estar bien se realiza deploy hacia main
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  test:
+    name: 'Nodejs v${{ matrix.node }}'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node:
+          - 12
+          - 14
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '${{ matrix.node }}'
+      - uses: actions/checkout@v2
+
+      - name: Install mocha
+        run: npm install -g mocha
+      - name: Instalando Dependencias
+        run: npm install
+      - name: Ejecuta los test de nuestro proyecto
+        run: npm run test
