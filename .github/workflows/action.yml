@@ -1,6 +1,6 @@
 name: Se corren los test y en caso de estar bien se realiza deploy hacia main
 on:
-   push:
+  push:
     branches: [ develop ]
   pull_request:
     branches: [ main ]
@@ -17,11 +17,11 @@ jobs:
           - 12
           - 14
     steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '${{ matrix.node }}'
       - uses: actions/checkout@v2
-
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
       - name: Install mocha
         run: npm install -g mocha
       - name: Instalando Dependencias
