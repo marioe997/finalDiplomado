@@ -3,11 +3,11 @@ const chai = require('chai');
 const expect = chai.expect;
 
 
-describe(`shipment`, () => {
+describe(`Shipment`, () => { 
 
-    describe('Realiza teste hacia el controlador de operaciones ', () => {
+    describe('Test Shipment Controller ', () => {
 
-            it('Realiza test acia la funcion createShipment', (done) => {
+            it('Test Function createShipment', (done) => {
                 chai.request(server)
                 .get('/shipment/createShipment')
                 .end( function(err,res){
@@ -17,7 +17,7 @@ describe(`shipment`, () => {
                 });
             });
             
-            it('Realiza test acia la funcion changeStatus', (done) => {
+            it('Test Function changeStatus', (done) => {
                 chai.request(server)
                 .get('/shipment/changeStatus')
                 .end( function(err,res){
@@ -26,9 +26,5 @@ describe(`shipment`, () => {
                 done();
                 });
             });
-
-       
-        
-
     })
 })

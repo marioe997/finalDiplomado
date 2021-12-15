@@ -30,8 +30,8 @@ describe('payment check', () => {
             agent.close();
         }
         done();
-        utils.removeFile(PAYMENT_FILE_PATH)
-          .then()
+        // utils.removeFile(PAYMENT_FILE_PATH)
+        //   .then()
     });
 
     it('Should generate an random price', (done) => {

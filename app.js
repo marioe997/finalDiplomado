@@ -45,22 +45,6 @@ module.exports = app;
 dogstatsd.increment('app.view');
 
 
-//docker
-
-const http = require('http');
-
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hola Mundo');
-});
-
-server.listen(port,() => {
-  console.log(`El servidor se está ejecutando en http://localhost:${port}/`);
-});
-
 Sentry.init({
   dsn: "https://cd258629a0db41138ad171dc36dd0166@o1059778.ingest.sentry.io/6048665",
 
