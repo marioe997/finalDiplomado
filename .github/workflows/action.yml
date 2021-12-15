@@ -1,7 +1,5 @@
 name: Se corren los test y en caso de estar bien se realiza deploy hacia main
 on:
-  push:
-    branches: [ develop ]
   pull_request:
     branches: [ main ]
 
@@ -16,7 +14,6 @@ jobs:
           - 12
           - 14
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: '${{ matrix.node }}'
