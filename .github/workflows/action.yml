@@ -13,4 +13,5 @@ jobs:
           git config --global user.name 'Mario Guerrero'
           git config --global user.email 'marioe997@users.noreply.github.com'
           git commit -am "Automated report"
+          git checkout "${GITHUB_REF:11}" 
           git push
