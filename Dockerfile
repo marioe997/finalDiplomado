@@ -1,6 +1,6 @@
 FROM node:10-slim
 
-RUN npm -g 
+RUN npm run
 
 USER node
 
